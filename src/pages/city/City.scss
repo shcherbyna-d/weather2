@@ -1,0 +1,20 @@
+@import '../../mixins.scss';
+
+.city {
+    width: 100%;
+    max-width: 1366px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    @include mobile {
+        padding: 20px 10px;
+    }
+    &__city-name {
+        color: #232F34;
+        font-size: 1.5em;
+        font-weight: 500;
+        margin-bottom: 20px;
+    }
+}
