@@ -7,7 +7,7 @@ import './Main.scss';
 class Main extends React.Component {
     render() {
         return (
-            <main className='weather__main main'>
+            <main className='weather__main main container'>
                 <Switch>
                     <Route exact path='/' component={Home}/>
                     <Route path='/city/' component={City}/>

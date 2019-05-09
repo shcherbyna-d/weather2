@@ -10,34 +10,34 @@ import sun from '../../utilities/assets/sun.png';
 const CityWeatherDetailsDay = () => {
 
     return (
-        <div className='city__weather-data weather-data'>
-            <div className='weather-data__datetime'>08.05.2019</div>
+        <div className='city__weather-data weather-data list-group-item list-group-item-action'>
+            <p className='weather-data__datetime'>Четверг 08.05.2019 15:00</p>
             <div className='weather-data__icon-block'>
                 <img className='weather-data__icon' src={sun}/>
             </div>
             <div className='weather-data__temperature temperature'>
-                <div className='temperature__name'>Темп.</div>
-                <div className='temperature__value'>15 °C</div>
+                <p className='temperature__name text-secondary'>Темп.</p>
+                <p className='temperature__value'>15 °C</p>
             </div>
             <div className='weather-data__wind-speed wind-speed'>
-                <div className='wind-speed__name'>Скор. вет.</div>
-                <div className='wind-speed__value'>2 м/с</div>
+                <p className='wind-speed__name text-secondary'>Скор. вет.</p>
+                <p className='wind-speed__value'>2 м/с</p>
             </div>
             <div className='weather-data__wind-deg wind-deg'>
-                <div className='wind-deg__name'>Напр. вет.</div>
-                <div className='wind-deg__value'>C</div>
+                <p className='wind-deg__name text-secondary'>Напр. вет.</p>
+                <p className='wind-deg__value'>C</p>
             </div>
             <div className='weather-data__humidity humidity'>
-                <div className='humidity__name'>Влажн.</div>
-                <div className='humidity__value'>70%</div>
+                <p className='humidity__name text-secondary'>Влажн.</p>
+                <p className='humidity__value'>70%</p>
             </div>
             <div className='weather-data__pressure pressure'>
-                <div className='pressure__name'>Давл.</div>
-                <div className='pressure__value'>999гПа</div>
+                <p className='pressure__name text-secondary'>Давл.</p>
+                <p className='pressure__value'>999гПа</p>
             </div>
             <div className='weather-data__description description'>
-                <div className='description__name'>Погода</div>
-                <div className='description__value'>Rain</div>
+                <p className='description__name text-secondary'>Погода</p>
+                <p className='description__value'>Rain</p>
             </div>
         </div>
     )

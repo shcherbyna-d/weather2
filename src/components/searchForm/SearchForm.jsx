@@ -6,7 +6,7 @@ class SearchForm extends React.Component {
 
     render() {
         return (
-            <form className='menu__search search-form'>
+            <form className='menu__search search-form form-group'>
                 <SearchInput />
             </form>
         )

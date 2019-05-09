@@ -12,6 +12,7 @@ class Menu extends React.Component {
             <div className={hiddenClassName}>
                 <div className='menu__block'>
                     <SearchForm placeholder='Find city...'/>
+                    <h3>Favorites cities:</h3>
                     <FavoriteCity />
                     <FavoriteCity />
                     <FavoriteCity />

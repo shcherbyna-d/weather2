@@ -11,12 +11,15 @@ import sun from '../../utilities/assets/sun.png';
 const CityWeather = () => {
 
     return (
-        <Link to={`/city/`} className='home__city-weather city-weather'>
-            <div className='city-weather__city-name'>City1</div>
-            <img className='city-weather__weather-icon' src={rain}/>
-            <div className='city-weather__weather-description'>
-                <div className='city-weather__city-temperature'>22 °C</div>
-                <div className='city-weather__weather-main'>Rain</div>
+        <Link to={`/city/`} className='home__city-weather city-weather card text-white bg-primary'>
+            <h4 className='city-weather__header card-header'>
+                <span>City1</span>
+                <span>wether today</span>
+            </h4>
+            <div className='city-weather__body card-body'>
+                <img className='city-weather__weather-icon' src={rain}/>
+                <h4 className='city-weather__temperature card-title'>22 °C</h4>
+                <h4 className='city-weather__weather-main card-title'>Rain</h4>
             </div>
         </Link>
     )
