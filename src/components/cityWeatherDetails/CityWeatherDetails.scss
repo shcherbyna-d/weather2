@@ -1,12 +1,9 @@
 @import '../../mixins.scss';
 
-.weather-data {
+.city-weather-details {
     display: flex;
     align-items: center;
-    // font-size: 0.8em;
-    // color: #232F34;
     text-align: center;
-    // border-bottom: 1px solid #232F34;
     // @include mobile {
     //     width: 100%;
     //     overflow-x: auto;
@@ -14,9 +11,9 @@
     & * {
         width: 90px;
         padding: 5px;
-        @include mobile {
-            width: 100%;
-        }    
+        // @include mobile {
+        //     width: 100%;
+        // }    
     }
     & p {
         margin-bottom: 0;
@@ -31,15 +28,10 @@
         height: 50px;
     }
     &__datetime {
-        // font-weight: 500;
         text-align: left;
     }
 }
 
 .temperature, .humidity, .pressure, .description, .wind-speed, .wind-deg {
     height: 100%;
-    // &__name {
-    //     color: rgba(35, 47, 52, 0.664);
-    //     font-size: 0.6em;
-    // }
 }
