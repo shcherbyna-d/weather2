@@ -4,7 +4,6 @@ import SearchForm from '../searchForm/SearchForm';
 import FavoriteCity from '../favoriteCity/FavoriteCity';
 
 class Menu extends React.Component {
-
     render() {
         let hiddenClassName = 'weather__menu menu';
         

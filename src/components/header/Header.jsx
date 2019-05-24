@@ -3,15 +3,17 @@ import './Header.scss';
 import { Link } from 'react-router-dom';
 import logo from '../../utilities/assets/iconfinder_weather_87934.png';
 
-const Header = () => {
+const Header = ({url}) => {
+	const style = {
+        backgroundImage: `url(${url})`,
+    }
+
     return (
-        <header className='weather__header header navbar navbar-expand-lg navbar-dark bg-primary'>
-            <h3 className='header__text-logo text-white'>Your weather app</h3>
-            <div className='header__logo'>
-                <Link to='/'>
-                    <img className='navbar-brand' src={logo}/>
-                </Link>
-            </div>
+        <header className='weather__header header' style={style}>
+			<h1 className='header__title'>Your weather app</h1>
+			<Link to='/'>
+				<img className='header__logo' src={logo}/>
+			</Link>
         </header>
     )
 }

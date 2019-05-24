@@ -5,14 +5,10 @@ import Main from './pages/main/Main';
 import Menu from './components/menu/Menu';
 
 export default class Weather extends Component {
-    state = {
-        
-    }
-
     render() {
         return (
             <div className="weather">
-                <Header />
+                <Header url={'https://images.unsplash.com/photo-1553969196-73b12db1c2ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80'}/>
                 <Main />
                 <Menu />
             </div>

@@ -17,7 +17,7 @@ class Home extends React.Component {
                 <CityWeather />
                 <CityWeather />
                 <CityWeather />
-                <BackgroundImage url={'https://images.unsplash.com/photo-1553969196-73b12db1c2ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80'}/>
+                {/* <BackgroundImage url={'https://images.unsplash.com/photo-1553969196-73b12db1c2ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80'}/> */}
             </div>
         )
     }
