@@ -11,7 +11,7 @@ import sun from '../../utilities/assets/sun.png';
 const CityWeather = () => {
 
     return (
-        <Link to={`/city/`} className='home__city-weather city-weather card text-white bg-primary'>
+        <Link to={`/city/`} className='home__city-weather city-weather card bg-light'>
             <h4 className='city-weather__header card-header'>
                 <span>City1</span>
                 <span>wether today</span>

@@ -22,7 +22,7 @@
         box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
         padding: 30px;
 		overflow: auto;
-		background-color: #375A7F;
+		background-color: #D4D9DF;
         @include mobile {
             box-shadow: none;
         }
@@ -32,7 +32,7 @@
         padding: 10px;
         border: none;
 		outline: none;
-		background-color: #375A7F;
+		background-color: #D4D9DF;
 		border-bottom-right-radius: 3px;
 		border-top-right-radius: 3px;
     }
@@ -40,7 +40,7 @@
         width: 30px;
         height: 5px;
 		margin-bottom: 5px;
-		background-color: #222222;
+		background-color: black;
         &:last-child {
             margin-bottom: initial;
         }

@@ -16,27 +16,27 @@ const CityWeatherDetails = () => {
                 <img className='city-weather-details__icon' src={sun}/>
             </div>
             <div className='city-weather-details__temperature temperature'>
-                <p className='temperature__name text-secondary'>Темп.</p>
+                <p className='temperature__name text-primary'>Temp.</p>
                 <p className='temperature__value'>15 °C</p>
             </div>
             <div className='city-weather-details__wind-speed wind-speed'>
-                <p className='wind-speed__name text-secondary'>Скор. вет.</p>
+                <p className='wind-speed__name text-primary'>Wind speed</p>
                 <p className='wind-speed__value'>2 м/с</p>
             </div>
             <div className='city-weather-details__wind-deg wind-deg'>
-                <p className='wind-deg__name text-secondary'>Напр. вет.</p>
+                <p className='wind-deg__name text-primary'>Wind deg.</p>
                 <p className='wind-deg__value'>C</p>
             </div>
             <div className='city-weather-details__humidity humidity'>
-                <p className='humidity__name text-secondary'>Влажн.</p>
+                <p className='humidity__name text-primary'>Humidity</p>
                 <p className='humidity__value'>70%</p>
             </div>
             <div className='city-weather-details__pressure pressure'>
-                <p className='pressure__name text-secondary'>Давл.</p>
+                <p className='pressure__name text-primary'>Pressure</p>
                 <p className='pressure__value'>999гПа</p>
             </div>
             <div className='city-weather-details__description description'>
-                <p className='description__name text-secondary'>Погода</p>
+                <p className='description__name text-primary'>Descrip.</p>
                 <p className='description__value'>Rain</p>
             </div>
         </div>
