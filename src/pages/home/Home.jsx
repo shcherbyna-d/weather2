@@ -1,6 +1,5 @@
 import React from 'react';
 import CityWeather from '../../components/cityWeather/CityWeather';
-import BackgroundImage from '../../components/backgroundImage/BackgroundImage';
 import './Home.scss';
 
 class Home extends React.Component {
