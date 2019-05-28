@@ -57,7 +57,7 @@ export default class Weather extends Component {
         return (
             <div className="weather">
                 <Header url={'https://images.unsplash.com/photo-1553969196-73b12db1c2ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80'}/>
-                <Main currentCityWeather={this.state.currentCityWeather} getCurrentLocation={this.getCurrentLocation} />
+                <Main currentCityWeather={this.state.currentCityWeather} />
                 <Menu isMenuShow={this.state.isMenuShow} toggleMenu={this.toggleMenu} />
             </div>
         );
