@@ -1,6 +1,6 @@
 export default class RequestWeather {
 	constructor() {
-		this.baseUrl = 'https://api.openweathermap.org/data/2.5/';
+		// this.baseUrl = 'https://api.openweathermap.org/data/2.5/';
 		this.appId = 'e5a8a2a8b07305119916d5ccc53716f0';
 		this.units = 'metric';
 	}
