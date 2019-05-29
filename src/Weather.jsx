@@ -10,6 +10,7 @@ export default class Weather extends Component {
 		isMenuShow: false,
 		currentCityWeather: undefined,
 		isCurrentLocationWeatherShow: true,
+		favoritesCities: {},
 	}
 
 	weatherRequest = new RequestWeather();
@@ -32,8 +33,6 @@ export default class Weather extends Component {
 		)
 	}
 	setLocationWeatherToState = (response) => {
-		console.log(response);
-		
 			const currentCityWeather = {
 				cityName: response.name,
 				cityId: response.id,
@@ -44,6 +43,44 @@ export default class Weather extends Component {
 		this.setState({currentCityWeather: currentCityWeather});
 	}
 
+	getFavoritesCitiesFromLocalStorage = () => {
+		if (localStorage.getItem('favoriteCities') === null) {
+			return;
+		} else {
+			const favoriteCities = {};
+			const favoriteCitiesStorage = JSON.parse(localStorage.getItem('favoriteCities'));
+			for (const key in favoriteCitiesStorage) {
+				if (favoriteCitiesStorage.hasOwnProperty(key)) {
+					const element = favoriteCitiesStorage[key];
+					favoriteCities[key] = element;
+				}
+			}
+			this.setState({
+				favoritesCities: favoriteCities,
+			});
+			return null;
+		}
+	}	
+
+	removeFavoriteCity = (cityId) => {
+		const favoriteCities = {};
+		let favoriteCitiesStorage;
+
+		favoriteCitiesStorage = JSON.parse(localStorage.getItem('favoriteCities'));
+		delete favoriteCitiesStorage[cityId];
+		for (const key in favoriteCitiesStorage) {
+			if (favoriteCitiesStorage.hasOwnProperty(key)) {
+				const element = favoriteCitiesStorage[key];
+				favoriteCities[key] = element;
+			}
+		}
+		localStorage.setItem('favoriteCities', JSON.stringify(favoriteCitiesStorage));
+
+		this.setState({
+			favoritesCities: favoriteCities,
+		});
+	}
+
     render() {
 		if (this.state.isCurrentLocationWeatherShow === true) {
 			if (this.state.currentCityWeather === undefined) {
@@ -52,13 +89,17 @@ export default class Weather extends Component {
 			}	
 		}
 
-		console.log(this.state.currentCityWeather);
+		this.getFavoritesCitiesFromLocalStorage();
 		
         return (
             <div className="weather">
                 <Header url={'https://images.unsplash.com/photo-1553969196-73b12db1c2ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80'}/>
                 <Main currentCityWeather={this.state.currentCityWeather} />
-                <Menu isMenuShow={this.state.isMenuShow} toggleMenu={this.toggleMenu} />
+				<Menu isMenuShow={this.state.isMenuShow} 
+					toggleMenu={this.toggleMenu} 
+					favoritesCities={this.state.favoritesCities}
+					removeFavoriteCity={this.removeFavoriteCity}
+				/>
             </div>
         );
     }
