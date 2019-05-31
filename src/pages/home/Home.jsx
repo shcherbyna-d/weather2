@@ -2,7 +2,9 @@ import React from 'react';
 import CityWeather from '../../components/cityWeather/CityWeather';
 import './Home.scss';
 
-const Home = ({currentCityWeather}) => {
+const Home = ({currentCityWeather, favoritesCitiesWeather}) => {
+
+	
 	let currentLocationWeather;
 	if (currentCityWeather !== undefined) {
 		currentLocationWeather = (
@@ -15,16 +17,21 @@ const Home = ({currentCityWeather}) => {
 		currentLocationWeather = null;
 	}
 
+	let cityWeatherElements;
+	if (favoritesCitiesWeather !== undefined) {
+		cityWeatherElements = favoritesCitiesWeather.map((cityWeather) => {
+			return (
+				<CityWeather currentCityWeather={cityWeather}/>
+			)
+		})
+
+	}
+
 	return (
 		<div className='weather__home home'>
 			{currentLocationWeather}
 			<h2 className='home__h2'><strong>Your favorites cities:</strong></h2>
-			{/* <CityWeather />
-			<CityWeather />
-			<CityWeather />
-			<CityWeather />
-			<CityWeather />
-			<CityWeather /> */}
+			{cityWeatherElements}
 		</div>
 	)
 }

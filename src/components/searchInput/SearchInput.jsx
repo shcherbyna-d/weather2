@@ -1,6 +1,5 @@
 import React from 'react';
 import './SearchInput.scss';
-import cities from '../../utilities/city.list.min.json';
 import Suggestion from '../suggestion/Suggestion';
 
 const SearchInput = () => {
