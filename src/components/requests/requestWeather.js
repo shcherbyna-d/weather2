@@ -1,16 +1,26 @@
 export default class RequestWeather {
 	constructor() {
-		this.baseUrl = 'https://api.openweathermap.org/data/2.5/';
+		// this.baseUrl = 'https://api.openweathermap.org/data/2.5/';
 		this.appId = 'e5a8a2a8b07305119916d5ccc53716f0';
 		this.units = 'metric';
 	}
 
-	getWeatherCity (lat, lon, setLocationWeatherToState) {
+	getWeatherCityByCoords (lat, lon, setLocationWeatherToState) {
 		const url = `${this.baseUrl}weather?lat=${lat}&lon=${lon}&APPID=${this.appId}&units=${this.units}`;
         fetch(url)
         .then(response => response.json())
         .then(response => {
 			setLocationWeatherToState(response);
+        })
+        .catch((e) => console.log(e));
+    }
+    
+	getSearchCityWeather (cityName, setCityWeatherToState) {
+		const url = `${this.baseUrl}weather?q=${cityName}&APPID=${this.appId}&units=${this.units}`;
+        fetch(url)
+        .then(response => response.json())
+        .then(response => {
+			setCityWeatherToState(response);
         })
         .catch((e) => console.log(e));
 	}
@@ -23,7 +33,9 @@ export default class RequestWeather {
 			setWeatherToState(response);
         })
         .catch((e) => console.log(e));
-	}
+    }
+    
+    
 
 	// getHoursWeatherCity (cityId) {
 	// 	const url = `${this.baseUrl}forecast?id=${cityId}&APPID=${this.appId}&units=${this.units}`;

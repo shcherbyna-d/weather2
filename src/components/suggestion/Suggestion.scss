@@ -5,9 +5,12 @@
         justify-content: space-between;
         align-items: center;
         width: 100%;
-        padding-right: 10px;
+        padding-right: 30px;
     }
     &:hover {
         cursor: pointer;
+    }
+    &__close {
+        margin-left: 5px;
     }
 }

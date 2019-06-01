@@ -3,7 +3,7 @@ import './Menu.scss';
 import SearchForm from '../searchForm/SearchForm';
 import FavoriteCity from '../favoriteCity/FavoriteCity';
 
-const Menu = ({isMenuShow, toggleMenu, favoritesCities, removeFavoriteCity}) => {
+const Menu = ({isMenuShow, toggleMenu, favoritesCities, removeFavoriteCity, searchPlaceholder, searchValue, onChangeSearchValue, getSearchCityWeather, suggestionCities, closeSuggestion, addToFavorite}) => {
 	let hiddenClassName = 'menu_hidden';
 	if (isMenuShow === true) {
 		hiddenClassName = '';
@@ -26,7 +26,14 @@ const Menu = ({isMenuShow, toggleMenu, favoritesCities, removeFavoriteCity}) => 
 	return (
 		<div className={`weather__menu menu ${hiddenClassName}`} >
 			<div className='menu__block'>
-				<SearchForm placeholder='Find city...'/>
+				<SearchForm searchPlaceholder={searchPlaceholder} 
+					searchValue={searchValue} 
+					onChangeSearchValue={onChangeSearchValue} 
+					getSearchCityWeather={getSearchCityWeather}
+					suggestionCities={suggestionCities}
+					closeSuggestion={closeSuggestion} 
+					addToFavorite={addToFavorite}
+				/>
 				<h3>Favorites cities:</h3>
 				{favoritesCitiesElements}
 			</div>

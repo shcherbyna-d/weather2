@@ -12,6 +12,8 @@ export default class Weather extends Component {
 		isCurrentLocationWeatherShow: true,
 		favoritesCities: undefined,
 		favoritesCitiesWeather: undefined,
+		searchValue: '',
+		searchCityWeather: undefined,
 	}
 
 	weatherRequest = new RequestWeather();
@@ -30,7 +32,7 @@ export default class Weather extends Component {
 		}
 
 		navigator.geolocation.getCurrentPosition((position) => {
-			this.weatherRequest.getWeatherCity(position.coords.latitude, position.coords.longitude, setLocationWeatherToState);
+			this.weatherRequest.getWeatherCityByCoords(position.coords.latitude, position.coords.longitude, setLocationWeatherToState);
 		}, () => {
 			this.setState({isCurrentLocationWeatherShow: false})
 		})
@@ -58,7 +60,7 @@ export default class Weather extends Component {
 		let favoriteCitiesStorage = JSON.parse(localStorage.getItem('favoriteCities'));
 		delete favoriteCitiesStorage[cityId];
 		const favoriteCities = Object.assign({}, favoriteCitiesStorage)
-		localStorage.setItem('favoriteCities', JSON.stringify(favoriteCitiesStorage));
+		localStorage.setItem('favoriteCities', JSON.stringify(favoriteCities));
 
 		this.setState({
 			favoritesCities: favoriteCities,
@@ -92,6 +94,55 @@ export default class Weather extends Component {
 		return favoritesCitiesWeather;
 	}
 
+	onChangeSearchValue = (event) => {
+		this.setState({
+			searchValue: event.target.value,
+		})
+	}
+
+	getSearchCityWeather = () => {
+		const setCityWeatherToState = (response) => {
+			this.setState({
+				searchCityWeather: response,
+			})
+		}
+
+		this.weatherRequest.getSearchCityWeather(this.state.searchValue, setCityWeatherToState);
+	}
+
+	parseSearchCityWeather = () => {
+		if (this.state.searchCityWeather === undefined) {
+			return undefined
+		} else {
+			return {
+				cityId: this.state.searchCityWeather.id,
+				cityName: this.state.searchCityWeather.name,
+				country: this.state.searchCityWeather.sys.country,
+			}	
+		}
+	}
+
+	closeSuggestion = () => {
+		this.setState({
+			searchCityWeather: undefined,
+		})
+	}
+
+	addToFavorite = (cityId, cityName) => {
+		let favoriteCitiesStorage = JSON.parse(localStorage.getItem('favoriteCities'));
+		if (favoriteCitiesStorage === null) {
+			favoriteCitiesStorage = {}
+		}
+		favoriteCitiesStorage[cityId] = cityName;
+		const favoriteCities = Object.assign({}, favoriteCitiesStorage)
+		localStorage.setItem('favoriteCities', JSON.stringify(favoriteCities));
+
+		this.setState({
+			favoritesCities: favoriteCities,
+		});
+
+		this.closeSuggestion();
+	}
 
     render() {
 		if (this.state.isCurrentLocationWeatherShow === true) {
@@ -121,6 +172,13 @@ export default class Weather extends Component {
 					toggleMenu={this.toggleMenu} 
 					favoritesCities={this.state.favoritesCities}
 					removeFavoriteCity={this.removeFavoriteCity}
+					searchPlaceholder={'Example: London'}
+					searchValue={this.state.searchValue}
+					onChangeSearchValue={this.onChangeSearchValue}
+					getSearchCityWeather={this.getSearchCityWeather}
+					suggestionCities={this.parseSearchCityWeather()}
+					closeSuggestion={this.closeSuggestion}
+					addToFavorite={this.addToFavorite}
 				/>
             </div>
         );
