@@ -59,15 +59,30 @@ export default class Weather extends Component {
 	removeFavoriteCity = (cityId) => {
 		let favoriteCitiesStorage = JSON.parse(localStorage.getItem('favoriteCities'));
 		delete favoriteCitiesStorage[cityId];
-		const favoriteCities = Object.assign({}, favoriteCitiesStorage)
-		localStorage.setItem('favoriteCities', JSON.stringify(favoriteCities));
+		if (Object.keys(favoriteCitiesStorage).length === 0) {
+			localStorage.removeItem('favoriteCities');
+			this.setState({
+				favoritesCities: undefined,
+				favoritesCitiesWeather: undefined,
+			});
+		} else {
+			const favoriteCities = Object.assign({}, favoriteCitiesStorage)
+			localStorage.setItem('favoriteCities', JSON.stringify(favoriteCities));
 
-		this.setState({
-			favoritesCities: favoriteCities,
-		});
+			this.setState(({favoritesCitiesWeather}) => {
+				const index = favoritesCitiesWeather.findIndex((element) => element.id == cityId);
+				const before = favoritesCitiesWeather.slice(0, index);
+				const after = favoritesCitiesWeather.slice(index + 1);
+				const newFavoritesCitiesWeather = [...before, ...after];
+				return {
+					favoritesCities: favoriteCities,
+					favoritesCitiesWeather: newFavoritesCitiesWeather,
+				}
+			})
+		}
 	}
 
-	getFavoritesCityWeather() {
+	getFavoritesCityWeather = () => {
 		const setWeatherToState = (response) => {
 			this.setState({
 				favoritesCitiesWeather: response.list,
@@ -125,6 +140,7 @@ export default class Weather extends Component {
 	closeSuggestion = () => {
 		this.setState({
 			searchCityWeather: undefined,
+			searchValue: '',
 		})
 	}
 
@@ -137,11 +153,19 @@ export default class Weather extends Component {
 		const favoriteCities = Object.assign({}, favoriteCitiesStorage)
 		localStorage.setItem('favoriteCities', JSON.stringify(favoriteCities));
 
-		this.setState({
-			favoritesCities: favoriteCities,
-		});
-
-		this.closeSuggestion();
+		this.setState(({searchCityWeather, favoritesCitiesWeather}) => {
+			let newFavoritesCitiesWeather = [];
+			if (favoritesCitiesWeather === undefined) {
+				newFavoritesCitiesWeather.push(searchCityWeather);
+			}
+			newFavoritesCitiesWeather = [searchCityWeather, ...favoritesCitiesWeather];
+			return {
+				favoritesCities: favoriteCities,
+				favoritesCitiesWeather: newFavoritesCitiesWeather,
+			}
+		}, () => {
+			this.closeSuggestion();
+		})
 	}
 
     render() {
@@ -152,11 +176,15 @@ export default class Weather extends Component {
 			}	
 		}
 
+		console.log(localStorage.getItem('favoriteCities'));
+		console.log(this.state.favoritesCities);
 		if (localStorage.getItem('favoriteCities') !== null && this.state.favoritesCities === undefined) {
 			this.getFavoritesCitiesFromLocalStorage();
 			return null;
 		}
 
+		console.log(this.state.favoritesCitiesWeather);
+		console.log(this.state.favoritesCities);
 		if (this.state.favoritesCitiesWeather === undefined && this.state.favoritesCities !== undefined) {
 			this.getFavoritesCityWeather();
 			return null;

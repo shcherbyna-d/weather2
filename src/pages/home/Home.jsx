@@ -21,7 +21,7 @@ const Home = ({currentCityWeather, favoritesCitiesWeather}) => {
 	if (favoritesCitiesWeather !== undefined) {
 		cityWeatherElements = favoritesCitiesWeather.map((cityWeather) => {
 			return (
-				<CityWeather currentCityWeather={cityWeather}/>
+				<CityWeather currentCityWeather={cityWeather} key={cityWeather.cityId} />
 			)
 		})
 

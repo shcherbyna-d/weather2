@@ -18,6 +18,7 @@ const Menu = ({isMenuShow, toggleMenu, favoritesCities, removeFavoriteCity, sear
 					cityName={name} 
 					cityId={key}
 					removeFavoriteCity={removeFavoriteCity}
+					key={key}
 				/>	
 			)
 		}
