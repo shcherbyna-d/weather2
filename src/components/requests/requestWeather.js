@@ -15,12 +15,17 @@ export default class RequestWeather {
         .catch((e) => console.log(e));
     }
     
-	getSearchCityWeather (cityName, setCityWeatherToState) {
+	getSearchCityWeather (cityName, setCityWeatherToState, cityNotFound) {
 		const url = `${this.baseUrl}weather?q=${cityName}&APPID=${this.appId}&units=${this.units}`;
         fetch(url)
         .then(response => response.json())
         .then(response => {
-			setCityWeatherToState(response);
+            if (response.cod == 200) {
+                setCityWeatherToState(response);
+            }
+            if (response.cod == 404) {
+                cityNotFound();
+            }   
         })
         .catch((e) => console.log(e));
 	}
