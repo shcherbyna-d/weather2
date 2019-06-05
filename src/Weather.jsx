@@ -187,15 +187,11 @@ export default class Weather extends Component {
 			}	
 		}
 
-		console.log(localStorage.getItem('favoriteCities'));
-		console.log(this.state.favoritesCities);
 		if (localStorage.getItem('favoriteCities') !== null && this.state.favoritesCities === undefined) {
 			this.getFavoritesCitiesFromLocalStorage();
 			return null;
 		}
 
-		console.log(this.state.favoritesCitiesWeather);
-		console.log(this.state.favoritesCities);
 		if (this.state.favoritesCitiesWeather === undefined && this.state.favoritesCities !== undefined) {
 			this.getFavoritesCityWeather();
 			return null;
