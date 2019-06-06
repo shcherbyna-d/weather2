@@ -3,7 +3,6 @@ import './Suggestion.scss';
 import PropTypes from 'prop-types';
 
 const Suggestion = ({cityId, cityName, country, closeSuggestion, addToFavorite}) => {
-
     return (
         <div className='search-form__suggestion suggestion list-group-item list-group-item-action d-flex justify-content-between align-items-center' >
             <div className='suggestion__city'>

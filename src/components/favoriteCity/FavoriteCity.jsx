@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const FavoriteCity = ({cityName, cityId, removeFavoriteCity}) => {
-
     return (
         <div className='menu__favorite-city favorite-city btn-group'>
             <Link to={`/city/${cityId}`} className='favorite-city__btn-city text-white btn btn-secondary'>{cityName}</Link>

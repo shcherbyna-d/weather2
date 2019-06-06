@@ -3,7 +3,14 @@ import './SearchInput.scss';
 import Suggestion from '../suggestion/Suggestion';
 import PropTypes from 'prop-types';
 
-const SearchInput = ({searchPlaceholder, searchValue, onChangeSearchValue, suggestionCity, closeSuggestion, addToFavorite}) => {
+const SearchInput = ({
+	searchPlaceholder, 
+	searchValue, 
+	onChangeSearchValue, 
+	suggestionCity, 
+	closeSuggestion, 
+	addToFavorite
+}) => {
     let suggestionElement = null;
     if (suggestionCity !== undefined) {
         suggestionElement = (

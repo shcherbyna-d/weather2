@@ -3,8 +3,15 @@ import './SearchForm.scss';
 import SearchInput from '../searchInput/SearchInput';
 import PropTypes from 'prop-types';
 
-const SearchForm = ({searchPlaceholder, searchValue, onChangeSearchValue, getSearchCityWeather, suggestionCity, closeSuggestion, addToFavorite}) => {
-    
+const SearchForm = ({
+	searchPlaceholder, 
+	searchValue, 
+	onChangeSearchValue, 
+	getSearchCityWeather, 
+	suggestionCity, 
+	closeSuggestion, 
+	addToFavorite
+}) => {
     return (
         <form className='menu__search search-form form-group' onSubmit={(event) => {
             event.preventDefault();
