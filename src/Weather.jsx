@@ -211,7 +211,7 @@ export default class Weather extends Component {
 					searchValue={this.state.searchValue}
 					onChangeSearchValue={this.onChangeSearchValue}
 					getSearchCityWeather={this.getSearchCityWeather}
-					suggestionCities={this.parseSearchCityWeather()}
+					suggestionCity={this.parseSearchCityWeather()}
 					closeSuggestion={this.closeSuggestion}
 					addToFavorite={this.addToFavorite}
 				/>

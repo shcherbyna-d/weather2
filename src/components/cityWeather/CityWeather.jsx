@@ -7,6 +7,7 @@ import rain from '../../utilities/assets/rainfall.png';
 import snow from '../../utilities/assets/snow.png';
 import storm from '../../utilities/assets/storm.png';
 import sun from '../../utilities/assets/sun.png';
+import PropTypes from 'prop-types';
 
 const CityWeather = ({currentCityWeather}) => {
 	const getWeatherIcon = () => {
@@ -47,6 +48,10 @@ const CityWeather = ({currentCityWeather}) => {
             </div>
         </Link>
     )
+}
+
+CityWeather.propTypes = {
+	currentCityWeather: PropTypes.object,
 }
 
 export default CityWeather;
