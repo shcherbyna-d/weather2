@@ -1,10 +1,9 @@
 import React from 'react';
 import CityWeather from '../../components/cityWeather/CityWeather';
 import './Home.scss';
+import PropTypes from 'prop-types';
 
 const Home = ({currentCityWeather, favoritesCitiesWeather}) => {
-
-	
 	let currentLocationWeather;
 	if (currentCityWeather !== undefined) {
 		currentLocationWeather = (
@@ -24,7 +23,8 @@ const Home = ({currentCityWeather, favoritesCitiesWeather}) => {
 				<CityWeather currentCityWeather={cityWeather} key={cityWeather.cityId} />
 			)
 		})
-
+	} else {
+		cityWeatherElements = null;
 	}
 
 	return (
@@ -34,6 +34,11 @@ const Home = ({currentCityWeather, favoritesCitiesWeather}) => {
 			{cityWeatherElements}
 		</div>
 	)
+}
+
+Home.propTypes = {
+	currentCityWeather: PropTypes.object,
+	favoritesCitiesWeather: PropTypes.array,
 }
 
 export default Home;

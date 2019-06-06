@@ -2,26 +2,43 @@ import React from 'react';
 import './Menu.scss';
 import SearchForm from '../searchForm/SearchForm';
 import FavoriteCity from '../favoriteCity/FavoriteCity';
+import PropTypes from 'prop-types';
 
-const Menu = ({isMenuShow, toggleMenu, favoritesCities, removeFavoriteCity, searchPlaceholder, searchValue, onChangeSearchValue, getSearchCityWeather, suggestionCities, closeSuggestion, addToFavorite}) => {
+const Menu = ({
+	isMenuShow, 
+	toggleMenu, 
+	favoritesCities, 
+	removeFavoriteCity, 
+	searchPlaceholder, 
+	searchValue, 
+	onChangeSearchValue, 
+	getSearchCityWeather, 
+	suggestionCity, 
+	closeSuggestion, 
+	addToFavorite
+}) => {
 	let hiddenClassName = 'menu_hidden';
 	if (isMenuShow === true) {
 		hiddenClassName = '';
 	}
 
-	const favoritesCitiesElements = [];
-	for (const key in favoritesCities) {
-		if (favoritesCities.hasOwnProperty(key)) {
-			const name = favoritesCities[key];
-			favoritesCitiesElements.push(
-				<FavoriteCity 
-					cityName={name} 
-					cityId={key}
-					removeFavoriteCity={removeFavoriteCity}
-					key={key}
-				/>	
-			)
-		}
+	let favoritesCitiesElements = [];
+	if (favoritesCities !== undefined) {
+		for (const key in favoritesCities) {
+			if (favoritesCities.hasOwnProperty(key)) {
+				const name = favoritesCities[key];
+				favoritesCitiesElements.push(
+					<FavoriteCity 
+						cityName={name} 
+						cityId={parseInt(key, 10)}
+						removeFavoriteCity={removeFavoriteCity}
+						key={key}
+					/>	
+				)
+			}
+		}	
+	} else {
+		favoritesCitiesElements = null;
 	}
 
 	return (
@@ -31,7 +48,7 @@ const Menu = ({isMenuShow, toggleMenu, favoritesCities, removeFavoriteCity, sear
 					searchValue={searchValue} 
 					onChangeSearchValue={onChangeSearchValue} 
 					getSearchCityWeather={getSearchCityWeather}
-					suggestionCities={suggestionCities}
+					suggestionCity={suggestionCity}
 					closeSuggestion={closeSuggestion} 
 					addToFavorite={addToFavorite}
 				/>
@@ -45,6 +62,20 @@ const Menu = ({isMenuShow, toggleMenu, favoritesCities, removeFavoriteCity, sear
 			</button>
 		</div>
 	)
+}
+
+Menu.propTypes = {
+	isMenuShow: PropTypes.bool,
+	toggleMenu: PropTypes.func,
+	favoritesCities: PropTypes.object,
+	removeFavoriteCity: PropTypes.func,
+	searchPlaceholder: PropTypes.string,
+	searchValue: PropTypes.string,
+	onChangeSearchValue: PropTypes.func,
+	getSearchCityWeather: PropTypes.func,
+	suggestionCity: PropTypes.object,
+	closeSuggestion: PropTypes.func,
+	addToFavorite: PropTypes.func,
 }
 
 export default Menu;

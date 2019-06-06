@@ -1,8 +1,8 @@
 import React from 'react';
 import './Suggestion.scss';
+import PropTypes from 'prop-types';
 
 const Suggestion = ({cityId, cityName, country, closeSuggestion, addToFavorite}) => {
-
     return (
         <div className='search-form__suggestion suggestion list-group-item list-group-item-action d-flex justify-content-between align-items-center' >
             <div className='suggestion__city'>
@@ -13,6 +13,14 @@ const Suggestion = ({cityId, cityName, country, closeSuggestion, addToFavorite})
             <button className='suggestion__close btn btn-danger' onClick={closeSuggestion} ><i className="fas fa-times"></i></button>
         </div>
     )
+}
+
+Suggestion.propTypes = {
+	cityId: PropTypes.number,
+	cityName: PropTypes.string,
+	country: PropTypes.string,
+	closeSuggestion: PropTypes.func,
+	addToFavorite: PropTypes.func
 }
 
 export default Suggestion;

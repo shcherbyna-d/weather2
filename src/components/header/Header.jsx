@@ -2,6 +2,7 @@ import React from 'react';
 import './Header.scss';
 import { Link } from 'react-router-dom';
 import logo from '../../utilities/assets/iconfinder_weather_87934.png';
+import PropTypes from 'prop-types';
 
 const Header = ({url}) => {
 	const style = {
@@ -16,6 +17,10 @@ const Header = ({url}) => {
 			</Link>
         </header>
     )
+}
+
+Header.propTypes = {
+	url: PropTypes.string,
 }
 
 export default Header;

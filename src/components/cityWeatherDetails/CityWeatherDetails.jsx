@@ -6,6 +6,7 @@ import rain from '../../utilities/assets/rainfall.png';
 import snow from '../../utilities/assets/snow.png';
 import storm from '../../utilities/assets/storm.png';
 import sun from '../../utilities/assets/sun.png';
+import PropTypes from 'prop-types';
 
 const CityWeatherDetails = () => {
 
@@ -41,6 +42,10 @@ const CityWeatherDetails = () => {
             </div>
         </div>
     )
+}
+
+CityWeatherDetails.propTypes = {
+	
 }
 
 export default CityWeatherDetails;

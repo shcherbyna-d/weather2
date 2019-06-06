@@ -40,7 +40,7 @@ export default class Weather extends Component {
 	}
 
 	parseCurrentCityWeather = () => {
-		if (this.state.isCurrentLocationWeatherShow === false) {
+		if (this.state.isCurrentLocationWeatherShow === false || this.state.currentCityWeather === undefined) {
 			return undefined;
 		} else {
 			return {
@@ -53,12 +53,21 @@ export default class Weather extends Component {
 		}
 	}
 
-	getFavoritesCitiesFromLocalStorage = () => {
+	getWeatherForLocalStoregeCities = () => {
 		const favoritesCities = Object.assign({}, JSON.parse(localStorage.getItem('favoriteCities')));
-		this.setState({
-			favoritesCities: favoritesCities,
-		});
-}	
+
+		this.setState(() => {
+			return {
+				favoritesCities: favoritesCities,
+			}
+		},
+		() => {
+			if (this.state.favoritesCitiesWeather === undefined) {
+				this.getFavoritesCityWeather();
+			}
+		}
+		)
+	}	
 
 	removeFavoriteCity = (cityId) => {
 		let favoriteCitiesStorage = JSON.parse(localStorage.getItem('favoriteCities'));
@@ -179,24 +188,19 @@ export default class Weather extends Component {
 		})
 	}
 
-    render() {
+	componentDidMount() {
 		if (this.state.isCurrentLocationWeatherShow === true) {
 			if (this.state.currentCityWeather === undefined) {
 				this.getCurrentLocation();
-				return null;
 			}	
 		}
 
 		if (localStorage.getItem('favoriteCities') !== null && this.state.favoritesCities === undefined) {
-			this.getFavoritesCitiesFromLocalStorage();
-			return null;
+			this.getWeatherForLocalStoregeCities();
 		}
+	}
 
-		if (this.state.favoritesCitiesWeather === undefined && this.state.favoritesCities !== undefined) {
-			this.getFavoritesCityWeather();
-			return null;
-		}
-		
+    render() {		
         return (
             <div className="weather">
                 <Header url={'https://images.unsplash.com/photo-1553969196-73b12db1c2ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80'}/>
@@ -211,7 +215,7 @@ export default class Weather extends Component {
 					searchValue={this.state.searchValue}
 					onChangeSearchValue={this.onChangeSearchValue}
 					getSearchCityWeather={this.getSearchCityWeather}
-					suggestionCities={this.parseSearchCityWeather()}
+					suggestionCity={this.parseSearchCityWeather()}
 					closeSuggestion={this.closeSuggestion}
 					addToFavorite={this.addToFavorite}
 				/>
