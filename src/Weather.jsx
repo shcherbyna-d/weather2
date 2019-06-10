@@ -46,7 +46,7 @@ export default class Weather extends Component {
 			return {
 				cityName: this.state.currentCityWeather.name,
 				cityId: this.state.currentCityWeather.id,
-				temperature: this.state.currentCityWeather.main.temp,
+				temperature: Math.round(this.state.currentCityWeather.main.temp),
 				weatherMain: this.state.currentCityWeather.weather[0].main,
 				weatherId: this.state.currentCityWeather.weather[0].id,
 			}	
@@ -113,7 +113,7 @@ export default class Weather extends Component {
 				return {
 					cityName: cityWeather.name,
 					cityId: cityWeather.id,
-					temperature: cityWeather.main.temp,
+					temperature: Math.round(cityWeather.main.temp),
 					weatherMain: cityWeather.weather[0].main,
 					weatherId: cityWeather.weather[0].id,	
 				}
