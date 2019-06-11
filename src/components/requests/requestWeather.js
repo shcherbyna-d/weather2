@@ -42,35 +42,14 @@ export default class RequestWeather {
     
     
 
-	// getHoursWeatherCity (cityId) {
-	// 	const url = `${this.baseUrl}forecast?id=${cityId}&APPID=${this.appId}&units=${this.units}`;
-    //     fetch(url)
-    //     .then(response => response.json())
-    //     .then(response => {
-    //         const weatherHoursArray = response.list.map((datetime) => {
-    //             return {
-    //                 datetime: datetime.dt,
-    //                 temperature: datetime.main.temp,
-    //                 humidity: datetime.main.humidity,
-    //                 pressure: datetime.main.pressure,
-    //                 weatherDescription: datetime.weather[0].description,
-    //                 weatherId: datetime.weather[0].id,
-    //                 windSpeed: datetime.wind.speed,
-    //                 windDeg: datetime.wind.deg,
-    //             }
-    //         });
-    //         weatherHoursArray.forEach(element => {
-    //             element.cityName = response.city.name;
-    //         });
-    //         this.setState(() => {
-    //             return {
-    //                 weatherHoursArray: weatherHoursArray,
-    //                 cityKey: this.props.match.params.cityKey,
-    //                 toRenderImg: true,
-    //             }
-    //         })
-    //     })
-    //     .catch((e) => console.log(e));
+	getHoursCityWeather (cityId, setHoursWeatherToState) {
+		const url = `${this.baseUrl}forecast?id=${cityId}&APPID=${this.appId}&units=${this.units}`;
+        fetch(url)
+        .then(response => response.json())
+        .then(response => {
+            setHoursWeatherToState(response);
+        })
+        .catch((e) => console.log(e));
 
-	// }
+	}
 }

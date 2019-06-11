@@ -9,7 +9,6 @@ import sun from '../../utilities/assets/sun.png';
 import PropTypes from 'prop-types';
 
 const CityWeatherDetails = () => {
-
     return (
         <div className='city__city-weather-details city-weather-details list-group-item list-group-item-action'>
             <p className='city-weather-details__datetime'>Четверг 08.05.2019 15:00</p>
@@ -22,7 +21,7 @@ const CityWeatherDetails = () => {
             </div>
             <div className='city-weather-details__wind-speed wind-speed'>
                 <p className='wind-speed__name text-primary'>Wind speed</p>
-                <p className='wind-speed__value'>2 м/с</p>
+                <p className='wind-speed__value'>2 m/s</p>
             </div>
             <div className='city-weather-details__wind-deg wind-deg'>
                 <p className='wind-deg__name text-primary'>Wind deg.</p>
@@ -34,7 +33,7 @@ const CityWeatherDetails = () => {
             </div>
             <div className='city-weather-details__pressure pressure'>
                 <p className='pressure__name text-primary'>Pressure</p>
-                <p className='pressure__value'>999гПа</p>
+                <p className='pressure__value'>999 hPa</p>
             </div>
             <div className='city-weather-details__description description'>
                 <p className='description__name text-primary'>Descrip.</p>
