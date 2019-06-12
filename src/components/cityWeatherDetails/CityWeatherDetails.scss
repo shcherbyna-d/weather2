@@ -23,8 +23,17 @@
     &__datetime {
         text-align: left;
     }
+    @include mobile {
+        width: 100%;
+        overflow-x: auto;
+    }
 }
 
 .temperature, .humidity, .pressure, .description, .wind-speed, .wind-deg {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
     height: 100%;
+
 }

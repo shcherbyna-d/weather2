@@ -30,7 +30,7 @@ const CityWeatherDetails = ({
     }
 
     return (
-        <div className='city__city-weather-details city-weather-details list-group-item list-group-item-action'>
+        <div className='city__city-weather-details city-weather-details'>
             <p className='city-weather-details__datetime'>{datetime}</p>
             <div className='city-weather-details__icon-block'>
                 <img className='city-weather-details__icon' src={sun}/>
