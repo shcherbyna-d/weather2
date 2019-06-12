@@ -43,25 +43,25 @@ class City extends React.Component {
         let day = fullDate.getDay();
         switch (day) {
             case 1:
-                day = 'Пн.'
+                day = 'Mon'
                 break;
             case 2:
-                day = 'Вт.'
+                day = 'Tue'
                 break;
             case 3:
-                day = 'Ср.'
+                day = 'Wed'
                 break;
             case 4:
-                day = 'Чт.'
+                day = 'Thu'
                 break;
             case 5:
-                day = 'Пт.'
+                day = 'Fr'
                 break;
             case 6:
-                day = 'Сб.'
+                day = 'Sa'
                 break;
             case 0:
-                day = 'Вс.'
+                day = 'Su'
                 break;
         }
         let date = parseInt(fullDate.getDate(), 10);
@@ -74,33 +74,6 @@ class City extends React.Component {
         let newDate = `${day} ${date}.${month}.${year} ${hours}:00`;
         return newDate;
     }
-
-    parseDeg = (deg) => {
-        if ((deg > 337 && deg <= 360) || (deg >= 1 && deg <= 22)) {
-            return 'С';
-        }
-        if (deg > 22 && deg <= 67) {
-            return 'СВ';
-        }
-        if (deg > 67 && deg <= 112) {
-            return 'В';
-        }
-        if (deg > 112 && deg <= 157) {
-            return 'ЮВ';
-        }
-        if (deg > 157 && deg <= 202) {
-            return 'Ю';
-        }
-        if (deg > 202 && deg <= 247) {
-            return 'ЮЗ';
-        }
-        if (deg > 247 && deg <= 292) {
-            return 'З';
-        }
-        if (deg > 292 && deg <= 337) {
-            return 'СЗ';
-        }
-	}
 	
 	componentDidMount() {
 		if (this.state.hoursWeather === undefined) {
@@ -126,7 +99,7 @@ class City extends React.Component {
                     weatherDescription={datetime.weatherDescription}
                     weatherId={datetime.weatherId}
                     windSpeed={datetime.windSpeed}
-                    windDeg={this.parseDeg(datetime.windDeg)}
+                    windDeg={datetime.windDeg}
                     key={datetime.datetime}
                 />
             })
@@ -139,10 +112,6 @@ class City extends React.Component {
             </div>
         )
     }
-}
-
-City.propTypes = {
-
 }
 
 export default City;

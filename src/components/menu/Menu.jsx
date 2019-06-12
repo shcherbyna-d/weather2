@@ -32,6 +32,7 @@ const Menu = ({
 						cityName={name} 
 						cityId={parseInt(key, 10)}
 						removeFavoriteCity={removeFavoriteCity}
+						toggleMenu={toggleMenu}
 						key={key}
 					/>	
 				)
