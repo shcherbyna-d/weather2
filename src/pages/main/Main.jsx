@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 
 const Main = ({currentCityWeather, favoritesCitiesWeather}) => {
 	return (
-		<main className='weather__main main container'>
+		<main className='weather__main main'>
 			<Switch>
 				<Route exact path='/' render={() => <Home currentCityWeather={currentCityWeather} favoritesCitiesWeather={favoritesCitiesWeather} />} />
 				<Route path='/city/:cityId' component={City}/>

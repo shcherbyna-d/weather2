@@ -1,7 +1,6 @@
 import React from 'react';
 import './City.scss';
 import CityWeatherDetails from '../../components/cityWeatherDetails/CityWeatherDetails';
-import PropTypes from 'prop-types';
 import RequestWeather from '../../components/requests/requestWeather';
 
 class City extends React.Component {
