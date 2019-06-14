@@ -25,13 +25,13 @@ const SearchInput = ({
     
     return (
         <div className='search-form__input-block input-block'>
-            <input className='input-block__input form-control form-control-lg' 
+            <input className='input-block__input' 
                 type="text" 
                 value={searchValue} 
                 placeholder={searchPlaceholder}
                 onChange={onChangeSearchValue} 
             />
-            <div className='input-block__suggestions list-group'>
+            <div className='input-block__suggestions'>
                 {suggestionElement}
             </div>
         </div>

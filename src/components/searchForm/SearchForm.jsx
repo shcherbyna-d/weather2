@@ -13,7 +13,7 @@ const SearchForm = ({
 	addToFavorite
 }) => {
     return (
-        <form className='menu__search search-form form-group' onSubmit={(event) => {
+        <form className='menu__search search-form' onSubmit={(event) => {
             event.preventDefault();
             getSearchCityWeather();
         }}>

@@ -36,15 +36,15 @@ const CityWeather = ({currentCityWeather}) => {
     }
 
     return (
-        <Link to={`/city/${currentCityWeather.cityId}`} className='home__city-weather city-weather card bg-light'>
-            <h4 className='city-weather__header card-header'>
+        <Link to={`/city/${currentCityWeather.cityId}`} className='home__city-weather city-weather'>
+            <h4 className='city-weather__header'>
                 <span>{currentCityWeather.cityName}</span>
                 <span>wether today</span>
             </h4>
-            <div className='city-weather__body card-body'>
+            <div className='city-weather__body'>
                 <img className='city-weather__weather-icon' src={getWeatherIcon()}/>
-                <h4 className='city-weather__temperature card-title'>{currentCityWeather.temperature} °C</h4>
-                <h4 className='city-weather__weather-main card-title'>{currentCityWeather.weatherMain}</h4>
+                <h4 className='city-weather__temperature'>{currentCityWeather.temperature} °C</h4>
+                <h4 className='city-weather__weather-main'>{currentCityWeather.weatherMain}</h4>
             </div>
         </Link>
     )
