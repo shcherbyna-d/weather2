@@ -12,9 +12,10 @@ const Header = ({url}) => {
     return (
         <header className='weather__header header' style={style}>
 			<h1 className='header__title'>Your weather app</h1>
-			<Link to='/'>
+			<Link to='/' className='header__link-logo'>
 				<img className='header__logo' src={logo}/>
 			</Link>
+            <div className='header__background'></div>
         </header>
     )
 }

@@ -11,6 +11,7 @@
     align-items: flex-start;
     transition: left 0.3s ease-in-out;
     transform-origin: left;
+    color: white;
     @include mobile {
         top: 50px;
         width: 100%;
@@ -22,7 +23,7 @@
         box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
         padding: 30px;
 		overflow: auto;
-		background-color: #D4D9DF;
+		background-color: #2C3E50;
         @include mobile {
             box-shadow: none;
         }
@@ -32,15 +33,16 @@
         padding: 10px;
         border: none;
 		outline: none;
-		background-color: #D4D9DF;
-		border-bottom-right-radius: 3px;
-		border-top-right-radius: 3px;
+        background-color: #2C3E50;
+        &:hover {
+            cursor: pointer;
+        }
     }
     &__btn-line {
         width: 30px;
         height: 5px;
 		margin-bottom: 5px;
-		background-color: black;
+		background-color: white;
         &:last-child {
             margin-bottom: initial;
         }
