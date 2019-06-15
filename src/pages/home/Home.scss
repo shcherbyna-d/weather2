@@ -1,3 +1,22 @@
 .home {
-	padding: 20px;
+	width: 100%;
+	&__current-location-title {
+		background-color: black;
+		color: white;
+		height: 50px;
+		display: flex;
+		align-items: center;
+		justify-content: center;																																							
+	}
+	&__current-location-block {
+		
+	}
+	&__h2 {
+		background-color: black;
+		color: white;
+		height: 50px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
 }

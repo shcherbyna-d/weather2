@@ -8,7 +8,7 @@ const Home = ({currentCityWeather, favoritesCitiesWeather}) => {
 	if (currentCityWeather !== undefined) {
 		currentLocationWeather = (
 			<div className='home__current-location-block'>
-				<h2 className='home__current-location-title'><strong>Your location city:</strong></h2>
+				<h2 className='home__current-location-title'>Your location city</h2>
 				<CityWeather currentCityWeather={currentCityWeather} />
 			</div>
 		)
@@ -30,7 +30,7 @@ const Home = ({currentCityWeather, favoritesCitiesWeather}) => {
 	return (
 		<div className='weather__home home'>
 			{currentLocationWeather}
-			<h2 className='home__h2'><strong>Your favorites cities:</strong></h2>
+			<h2 className='home__h2'>Your favorites cities</h2>
 			{cityWeatherElements}
 		</div>
 	)
