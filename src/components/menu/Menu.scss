@@ -1,5 +1,61 @@
 @import '../../mixins.scss';
 
+// .menu {
+//     position: fixed;
+//     left: 0;
+//     top: 0;
+//     width: 500px;
+//     height: 100vh;
+//     z-index: 99;
+//     display: flex;
+//     align-items: flex-start;
+//     transition: left 0.3s ease-in-out;
+//     transform-origin: left;
+//     color: white;
+//     @include mobile {
+//         top: 50px;
+//         width: 100%;
+//         height: calc(100% - 50px);
+//     }
+//     &__block {
+//         width: 100%;
+//         height: 100%;
+//         box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+//         padding: 30px;
+// 		overflow: auto;
+// 		background-color: rgb(48,48,48) ;
+//         @include mobile {
+//             box-shadow: none;
+//         }
+//     }
+//     &__open-btn {
+//         height: 50px;
+//         padding: 10px;
+//         border: none;
+// 		outline: none;
+//         background-color: rgb(48,48,48) ;
+//         &:hover {
+//             cursor: pointer;
+//         }
+//     }
+//     &__btn-line {
+//         width: 30px;
+//         height: 5px;
+// 		margin-bottom: 5px;
+// 		background-color: white;
+//         &:last-child {
+//             margin-bottom: initial;
+//         }
+//     }
+//     &_hidden {
+//         left: -450px;
+//         @include mobile {
+//             left: calc(-100% + 50px);
+//             background-color: transparent;
+//         }    
+//     }
+// }
+
 .menu {
     position: fixed;
     left: 0;
@@ -11,19 +67,19 @@
     align-items: flex-start;
     transition: left 0.3s ease-in-out;
     transform-origin: left;
-    color: white;
     @include mobile {
-        top: 50px;
         width: 100%;
-        height: calc(100% - 50px);
+        height: 100%;
+        background-color: rgb(48,48,48);
     }
     &__block {
         width: 100%;
         height: 100%;
+        background-color: rgb(48,48,48);
+        color: white;
         box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
         padding: 30px;
-		overflow: auto;
-		background-color: #2C3E50;
+        overflow: auto;
         @include mobile {
             box-shadow: none;
         }
@@ -31,18 +87,18 @@
     &__open-btn {
         height: 50px;
         padding: 10px;
+        background-color: rgb(48,48,48);
         border: none;
-		outline: none;
-        background-color: #2C3E50;
+        outline: none;
         &:hover {
             cursor: pointer;
         }
     }
     &__btn-line {
+        background-color: white;
         width: 30px;
         height: 5px;
-		margin-bottom: 5px;
-		background-color: white;
+        margin-bottom: 5px;
         &:last-child {
             margin-bottom: initial;
         }

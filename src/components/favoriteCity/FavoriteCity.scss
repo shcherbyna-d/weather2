@@ -1,7 +1,38 @@
 .favorite-city {
-    margin-top: 30px;
+    margin-top: 20px;
     width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
     &__btn-city {
-        width: 80%;
+        height: 100%;
+        width: 85%;
+        padding: 0 10px;
+        line-height: 40px;
+        color: black;
+        background-color: white;
+        font-family: inherit;
+        font-size: 0.9em;
+        outline: none;
+        text-decoration: none;
+        transition: opacity 0.15s linear;
+        &:hover {
+            opacity: 0.6;
+        }    
+    }
+    &__btn-remove {
+        border: none;
+        color: white;
+        height: 100%;
+        width: 15%;
+        background-color: rgb(216,0,0) ;
+        font-size: 1em;
+        outline: none;
+        padding-bottom: 3px;
+        transition: opacity 0.15s linear;
+        &:hover {
+            cursor: pointer;
+            opacity: 0.6;
+        }
     }
 }

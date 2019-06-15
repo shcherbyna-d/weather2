@@ -1,3 +1,14 @@
-.search-form__input {
-    width: 100%;
+.search-input {
+    &__input {
+        background-color: white;
+        border: none;
+        // border-bottom: 1px solid #4A6572;
+        width: 100%;
+        height: 40px;
+        padding: 14px;
+        font-family: inherit;
+        font-size: 1em;
+        color: black;
+        outline: none;
+    }
 }

@@ -24,14 +24,14 @@ const SearchInput = ({
     }
     
     return (
-        <div className='search-form__input-block input-block'>
-            <input className='input-block__input' 
+        <div className='search-form__search-input search-input'>
+            <input className='search-input__input' 
                 type="text" 
-                value={searchValue} 
+                value={searchValue}
                 placeholder={searchPlaceholder}
                 onChange={onChangeSearchValue} 
             />
-            <div className='input-block__suggestions'>
+            <div className='search-input__suggestions'>
                 {suggestionElement}
             </div>
         </div>

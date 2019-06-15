@@ -53,7 +53,7 @@ const Menu = ({
 					closeSuggestion={closeSuggestion} 
 					addToFavorite={addToFavorite}
 				/>
-				<h3>Favorites cities:</h3>
+				<h3>Favorites cities</h3>
 				{favoritesCitiesElements}
 			</div>
 			<button className='menu__open-btn' onClick={() => toggleMenu()} >
