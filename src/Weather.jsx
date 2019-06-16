@@ -164,7 +164,7 @@ export default class Weather extends Component {
 	}
 
 	addToFavorite = (cityId, cityName) => {	
-		if (this.state.favoritesCities[cityId] !== undefined) {
+		if (this.state.favoritesCities !== undefined && this.state.favoritesCities[cityId] !== undefined) {
 			this.closeSuggestion();
 		} else {
 			let favoriteCitiesStorage = JSON.parse(localStorage.getItem('favoriteCities'));
