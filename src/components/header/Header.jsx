@@ -1,7 +1,7 @@
 import React from 'react';
 import './Header.scss';
 import { Link } from 'react-router-dom';
-import logo from '../../utilities/assets/iconfinder_weather_87934.png';
+import logo from '../../utilities/assets/favicon.png';
 import PropTypes from 'prop-types';
 
 const Header = ({url, title}) => {
