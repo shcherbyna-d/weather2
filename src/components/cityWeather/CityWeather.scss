@@ -1,3 +1,5 @@
+@import '../../mixins.scss';
+
 .city-weather {
     text-decoration: none;
     margin-bottom: 10px;
@@ -11,8 +13,15 @@
         align-items: center;
         box-shadow: 0px 7px 10px grey;
         transition: background-color 0.2s ease-in-out;
+        @include mobile {
+			height: 100px;
+			padding: 10px;
+		}
         & * {
             margin-right: 15px;
+            @include mobile {
+                margin-right: 10px;
+            }
         }
         &:hover {
             background-color: #AFAFAE;
@@ -20,6 +29,9 @@
     }
     &__header {
         font-size: 20px;
+        @include mobile {
+			font-size: 18px;
+		}
     }
     &__body {
         display: flex;
@@ -27,11 +39,16 @@
         justify-content: center;
     }
     &__weather-icon {
-        height: 80px;
         width: 80px;
+        @include mobile {
+			width: 50px;
+		}
     }
     &__temperature {
         color: rgb(20, 132, 223);
         font-size: 30px;
+        @include mobile {
+			font-size: 25px;
+		}
     }
 }

@@ -15,6 +15,7 @@ export default class Weather extends Component {
 		searchValue: '',
 		searchPlaceholder: 'Example: London',
 		searchCityWeather: undefined,
+		titleHeader: undefined,
 	}
 
 	weatherRequest = new RequestWeather();
@@ -163,28 +164,40 @@ export default class Weather extends Component {
 	}
 
 	addToFavorite = (cityId, cityName) => {
-		let favoriteCitiesStorage = JSON.parse(localStorage.getItem('favoriteCities'));
-		if (favoriteCitiesStorage === null) {
-			favoriteCitiesStorage = {}
-		}
-		favoriteCitiesStorage[cityId] = cityName;
-		const favoriteCities = Object.assign({}, favoriteCitiesStorage)
-		localStorage.setItem('favoriteCities', JSON.stringify(favoriteCities));
-
-		this.setState(({searchCityWeather, favoritesCitiesWeather}) => {
-			let newFavoritesCitiesWeather = [];
-			if (favoritesCitiesWeather === undefined) {
-				newFavoritesCitiesWeather.push(searchCityWeather);
-			} else {
-				newFavoritesCitiesWeather = [searchCityWeather, ...favoritesCitiesWeather];
-			}
-			
-			return {
-				favoritesCities: favoriteCities,
-				favoritesCitiesWeather: newFavoritesCitiesWeather,
-			}
-		}, () => {
+		if (typeof this.state.favoritesCities[cityId] !== undefined) {
 			this.closeSuggestion();
+		} else {
+			let favoriteCitiesStorage = JSON.parse(localStorage.getItem('favoriteCities'));
+			if (favoriteCitiesStorage === null) {
+				favoriteCitiesStorage = {}
+			}
+			favoriteCitiesStorage[cityId] = cityName;
+			const favoriteCities = Object.assign({}, favoriteCitiesStorage)
+			localStorage.setItem('favoriteCities', JSON.stringify(favoriteCities));
+	
+			this.setState(({searchCityWeather, favoritesCitiesWeather}) => {
+				let newFavoritesCitiesWeather = [];
+				if (favoritesCitiesWeather === undefined) {
+					newFavoritesCitiesWeather.push(searchCityWeather);
+				} else {
+					newFavoritesCitiesWeather = [searchCityWeather, ...favoritesCitiesWeather];
+				}
+				
+				return {
+					favoritesCities: favoriteCities,
+					favoritesCitiesWeather: newFavoritesCitiesWeather,
+				}
+			}, () => {
+				this.closeSuggestion();
+			})	
+		}
+	}
+
+	changeHeaderTtitle = (titleHeader) => {
+		this.setState(() => {
+			return {
+				titleHeader: titleHeader,
+			}
 		})
 	}
 
@@ -203,9 +216,10 @@ export default class Weather extends Component {
     render() {		
         return (
             <div className="weather">
-                <Header url={'https://images.unsplash.com/photo-1553969196-73b12db1c2ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80'}/>
+                <Header url={'https://images.unsplash.com/photo-1553969196-73b12db1c2ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80'} title={this.state.titleHeader} />
 				<Main currentCityWeather={this.parseCurrentCityWeather()} 
-					favoritesCitiesWeather={this.parseFavoritesCitiesWeather()} 
+					favoritesCitiesWeather={this.parseFavoritesCitiesWeather()}
+					changeHeaderTtitle={this.changeHeaderTtitle}
 				/>
 				<Menu isMenuShow={this.state.isMenuShow} 
 					toggleMenu={this.toggleMenu} 

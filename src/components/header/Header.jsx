@@ -4,14 +4,18 @@ import { Link } from 'react-router-dom';
 import logo from '../../utilities/assets/iconfinder_weather_87934.png';
 import PropTypes from 'prop-types';
 
-const Header = ({url}) => {
+const Header = ({url, title}) => {
 	const style = {
         backgroundImage: `url(${url})`,
+    }
+    let titleValue = 'Your weather app';
+    if (title !== undefined) {
+        titleValue = title;
     }
 
     return (
         <header className='weather__header header' style={style}>
-			<h1 className='header__title'>Your weather app</h1>
+			<h1 className='header__title'>{titleValue} </h1>
 			<Link to='/' className='header__link-logo'>
 				<img className='header__logo' src={logo}/>
 			</Link>
@@ -21,7 +25,8 @@ const Header = ({url}) => {
 }
 
 Header.propTypes = {
-	url: PropTypes.string,
+    url: PropTypes.string,
+    title: PropTypes.string,
 }
 
 export default Header;

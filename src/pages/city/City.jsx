@@ -31,7 +31,8 @@ class City extends React.Component {
                     hoursWeather: hoursWeather,
                     cityId: this.props.match.params.cityId,
                 }
-            })
+            },
+            () => this.props.changeHeaderTtitle(this.state.hoursWeather[0].cityName))
 		}
 
 		this.weatherRequest.getHoursCityWeather(this.props.match.params.cityId, setHoursWeatherToState);
@@ -79,6 +80,10 @@ class City extends React.Component {
             this.weatherRequestHours();
         }
     }
+
+    componentWillUnmount() {
+        this.props.changeHeaderTtitle(undefined);
+    }
     
     componentDidUpdate() {
 		if (this.state.cityId !== undefined && this.state.cityId !== this.props.match.params.cityId) {
@@ -106,7 +111,7 @@ class City extends React.Component {
         
         return (
             <div className='weather__city city'>
-                <div className='city__city-name'>{this.state.hoursWeather === undefined? null: this.state.hoursWeather[0].cityName}</div>
+                {/* <div className='city__city-name'>{this.state.hoursWeather === undefined? null: this.state.hoursWeather[0].cityName}</div> */}
                 {cityWeatherDetailsElements}
             </div>
         )
