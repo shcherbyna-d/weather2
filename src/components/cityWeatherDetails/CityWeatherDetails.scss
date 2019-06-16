@@ -20,9 +20,9 @@
         text-align: left;
     }
     &__datetime {
-        width: 80px;
+        width: 90px;
         @include desktop {
-            width: initial;
+			min-width: 170px;
         }
     }
     @include desktop {

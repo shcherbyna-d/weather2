@@ -2,53 +2,66 @@
 
 .city-weather {
     text-decoration: none;
-    margin-bottom: 10px;
     &__block {
         height: 150px;
-        width: 100%;
+		width: 100%;
+		box-shadow: 0px 7px 10px grey;
+		display: flex;
+		justify-content: center;
+		transition: background-color 0.2s ease-in-out;
+        @include mobile {
+			height: 100px;
+		}
+        &:hover {
+            background-color: rgb(204, 204, 204);
+        }
+	}
+	&__container {
+		height: 100%;
+        width: 500px;
         color: black;
         padding: 20px;
         display: flex;
         justify-content: center;
         align-items: center;
-        box-shadow: 0px 7px 10px grey;
-        transition: background-color 0.2s ease-in-out;
         @include mobile {
-			height: 100px;
 			padding: 10px;
 		}
-        & * {
-            margin-right: 15px;
-            @include mobile {
-                margin-right: 10px;
-            }
-        }
-        &:hover {
-            background-color: #AFAFAE;
-        }
-    }
+	}
     &__header {
-        font-size: 20px;
+		font-size: 20px;
+		width: 35%;
         @include mobile {
 			font-size: 18px;
 		}
     }
     &__body {
+		width: 65%;
         display: flex;
         align-items: center;
-        justify-content: center;
+		justify-content: center;
+		& * {
+            margin-right: 15px;
+            @include mobile {
+                margin-right: 10px;
+            }
+        }
     }
     &__weather-icon {
-        width: 80px;
+		width: 30%;
         @include mobile {
 			width: 50px;
 		}
     }
     &__temperature {
+		width: 30%;
         color: rgb(20, 132, 223);
         font-size: 30px;
         @include mobile {
 			font-size: 25px;
 		}
-    }
+	}
+	&__weather-main {
+		width: 40%;
+	}
 }
